@@ -60,7 +60,7 @@ exports.publish = (queueName, message) => {
 
   //AMQP_URL: amqp://guest:guest@rabbitmq:5672
 
-  amqp.connect("amqp://localhost", (err, connection) => {
+  amqp.connect("amqp://rabbitmq:5672", (err, connection) => {
     if (err) {
       console.log("ERROR", err);
 

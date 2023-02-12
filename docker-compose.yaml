@@ -1,20 +1,34 @@
-version: '3'
+version: "3"
 services:
-  localhost:
+
+  mongodb:
+    container_name: mongodb
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_DATA_DIR: /data/db
+      MONGO_LOG_DIR: /dev/null
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - rabbitmq_nodejs
+  rabbitmq:
     image: rabbitmq:latest
     ports:
-        - 5673:5672
-        - 15673:15672
-    #volumes:
-        #- ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
-        #- ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
-    networks:
-        - rabbitmq_nodejs
+      - 5673:5672
+      - 15673:15672
 
-  api:  
+    networks:
+      - rabbitmq_nodejs
+
+  api:
+    restart: always
     depends_on:
-      - localhost
-    build: 
+      - "rabbitmq"
+      - mongodb
+    build:
       dockerfile: Dockerfile
       context: ./
     volumes:
@@ -22,19 +36,28 @@ services:
       - ./:/app
     ports:
       - "8080:8080"
-  
+    networks:
+      - rabbitmq_nodejs
+    # wait for the RabbitMQ server to be running before the consumer tries to connect to it
+    command: sh -c '/bin/wait-for-it.sh mongodb:27017 rabbitmq:5672 --timeout=30 -- npm run start'
     environment:
-      - HOST=mongodb+srv://bosta:bosta@cluster0.r4tfj3d.mongodb.net/?retryWrites=true&w=majority
       - SECRET_TOKEN=bosta
-      - EMAIL_USERNAME=adel.essam.elfar@gmail.com
-      - EMAIL_PASSWORD=Real_Madrid1
+      - EMAIL_USERNAME=############
+      - EMAIL_PASSWORD=############
       - PORT=8080
-      - CLIENT_ID=637679613688-jbc824747ff9544cofclvkrab14seomp.apps.googleusercontent.com
-      - CLIENT_SECRET=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
-      - REFRESH_TOKEN=1//04CwM4StXddt2CgYIARAAGAQSNwF-L9IrHqU2e_1oXiUgJDYyMY7DvtQwTTLI6Vrnly8WrV25yfOWW91HLzSyVfPTuhWz-c0421U
-      - ACCESS_TOKEN = ya29.a0AVvZVsoagqtFcA2xxa2-ZRg9DtAgODnIZwKGgIFbYwX5Dsf2y5gWJpPCE9GySpMjBRLDf68vDXs-xdZY2moszqKryshkrFbWr5Vdlyynb3eoOUL9VZgRNeacrzIITmYmiSOn3ezCpJo8Ezp5ehbHpXZH-Q46aCgYKAbwSARESFQGbdwaInj1HqIWz7oKysQzpJeKgYw0163
-
+      - CLIENT_ID=################################.apps.googleusercontent.com
+      - CLIENT_SECRET==################################.-=################################.
+      - REFRESH_TOKEN==################################.
+      - ACCESS_TOKEN = =################################.
+      - DB_HOST=localhost
+      - DB_USER=root
+      - DB_PASSWORD=123456
+      - DB_NAME=bostaDB
+      - DB_PORT=27017
 
 networks:
   rabbitmq_nodejs:
     driver: bridge
+
+volumes:
+  mongo-data:

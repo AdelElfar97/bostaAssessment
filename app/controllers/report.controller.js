@@ -60,7 +60,6 @@ exports.saveReport = async (monitor) => {
   data.totalRequests =
     (url?.report?.totalRequests + 1) | monitor?.totalRequests;
   data.status = url?.report?.status | monitor?.isUp ? "up" : "down";
-  console.log(data.status);
   data.outages =
     (url?.report?.outages + (data.status == "down" ? 1 : 0)) |
     monitor?.totalDownTimes;

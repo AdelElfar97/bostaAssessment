@@ -127,7 +127,6 @@ exports.verify = async (req, res) => {
   let payload = null;
   try {
     payload = jwt.verify(token, process.env.SECRET_TOKEN);
-    console.log("payload", payload);
   } catch (err) {
     return res.status(500).send(err);
   }
@@ -150,7 +149,6 @@ exports.verify = async (req, res) => {
 };
 
 exports.signin = async (req, res) => {
-  console.log("REQ", req.body);
   User.findOne({
     email: req.body.email,
   })

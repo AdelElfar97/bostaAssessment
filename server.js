@@ -14,12 +14,48 @@ app.use(express.urlencoded({ extended: true }));
 
 const db = require("./app/models");
 
+const { DB_HOST, DB_PORT, DB_NAME } = process.env;
+
 db.mongoose
-  .connect(process.env.HOST, {
+  .connect(`mongodb://mongodb/bostaDB`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .then(() => {
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connect to MongoDB.");
     console.log("Successfully connect to MongoDB.");
   })
   .catch((err) => {

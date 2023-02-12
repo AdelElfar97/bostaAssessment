@@ -8,7 +8,7 @@ const amqp = require("amqplib/callback_api");
 getUrls();
 let monitoredUrls = {};
 
-amqp.connect("amqp://localhost", (err, connection) => {
+amqp.connect("amqp://rabbitmq:5672", (err, connection) => {
   if (err) {
     console.log("ERROR", err);
 
@@ -89,7 +89,7 @@ function getUrls() {
           let queueName = "create";
           let message = JSON.stringify(url);
 
-          amqp.connect("amqp://localhost", (err, connection) => {
+          amqp.connect("amqp://rabbitmq:5672", (err, connection) => {
             if (err) {
               console.log("ERROR", err);
 

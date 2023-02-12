@@ -1,9 +1,12 @@
 # Backend Assessment - Realtime URL monitoring
 
-a realtime server with nodejs, mongoDB and rabbitMQ
+a realtime server with nodejs,Oauth mongoDB and rabbitMQ
 allows authenticated users to monitor URLs, and get detailed uptime reports about their availability, average response time, and total uptime/downtime.
-for the APIs plz go to the postman  file in  the repo
 
+
+## how to run?
+1-you might need to get Oauth credentials from you gmail and put it in docker-compose.yaml, or use another email provider
+2-for the APIs routes and examples, import the postman file to postman
 ## Overview
 
 - Signup with email verification.

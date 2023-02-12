@@ -10,7 +10,6 @@ const { publish } = require("../utils/helper");
 exports.createUrl = async (req, res) => {
   try {
     const user = await User.findById(req.id);
-    console.log("USER", user);
     const url = new Url(req.body);
     if (!url.emailNotification) {
       url.emailNotification = req.email;
@@ -49,9 +48,6 @@ exports.getUrl = async (req, res) => {
 exports.editUrl = async (req, res) => {
   try {
     const user = await User.findById(req.id);
-    console.log("USER", user);
-    console.log("USER.urls", user.urls);
-    console.log(req.query.url);
     if (user && user.urls.includes(req.query.url)) {
       const option = { new: true }; //will return updated document
 
