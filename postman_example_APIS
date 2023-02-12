@@ -1,0 +1,364 @@
+{
+	"info": {
+		"_postman_id": "033403f4-9ac0-4e5f-951a-47c6f2c0869d",
+		"name": "bosta",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"username\",\r\n    \"email\" : \"email@gmail.com\",\r\n    \"password\" : \"PASSWORD\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sendemail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"username\",\r\n    \"email\" : \"emailgmail.com\",\r\n    \"password\" : \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/sendemail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"sendemail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"email@gmail.com\",\r\n    \"password\" : \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createUrl",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTdjY2IzMTc0MzYyZjExYjJjNTI3MyIsImVtYWlsIjoiYWRlbC5lc3NhbS5lbGZhckBnbWFpbC5jb20iLCJpYXQiOjE2NzYxNDI5MDMsImV4cCI6MTY3NjIyOTMwM30.eKx6T91Ho0B2D7Vr7jqM5tOHlCDi1f5WyX55KJInhZQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"name\":\"test\",\r\n \"url\":\"the-internetz.herokuapp.com\",\r\n \"path\":\"/basic_auth\",\r\n \"protocol\":\"https\",\r\n \"port\":80,\r\n \"interval\":5000,\r\n \"timeout\":10000,\r\n \"tags\":[\r\n         \"tag1\",\"tag2\"\r\n ],\r\n  \"httpHeaders\":[\r\n     {\r\n         \"key\":\"header1\",\r\n         \"value\":\"val1Header\"\r\n     }\r\n ],\r\n \"threshold\":\"2\",\r\n\"authentication\":{\r\n\"username\":\"admin\",\r\n\"password\":\"admin2\"\r\n},\r\n\"assert\":{\r\n    \"statusCode\":200\r\n}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/url",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"url"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUrl",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTAzNzRlMWQ3NzMxZGVhNDRiZTQwNiIsImVtYWlsIjoiYWRlbGVzc2FtMjU2QGdtYWlsLmNvbSIsImlhdCI6MTY3NjA0NTYyMSwiZXhwIjoxNjc2MTMyMDIxfQ.xBG5APyXdSBnS0Byk4AVMJV8oFm9QEwTrCcMLV6Wtgk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/url?url=63e790b2bb5ac0f7b3ab7bfa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"url"
+					],
+					"query": [
+						{
+							"key": "url",
+							"value": "63e790b2bb5ac0f7b3ab7bfa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getReport",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTAzNzRlMWQ3NzMxZGVhNDRiZTQwNiIsImVtYWlsIjoiYWRlbGVzc2FtMjU2QGdtYWlsLmNvbSIsImlhdCI6MTY3NjA0NTYyMSwiZXhwIjoxNjc2MTMyMDIxfQ.xBG5APyXdSBnS0Byk4AVMJV8oFm9QEwTrCcMLV6Wtgk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/report?tag=tag1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"report"
+					],
+					"query": [
+						{
+							"key": "tag",
+							"value": "tag1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLogs",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTAzNzRlMWQ3NzMxZGVhNDRiZTQwNiIsImVtYWlsIjoiYWRlbGVzc2FtMjU2QGdtYWlsLmNvbSIsImlhdCI6MTY3NjA0NTYyMSwiZXhwIjoxNjc2MTMyMDIxfQ.xBG5APyXdSBnS0Byk4AVMJV8oFm9QEwTrCcMLV6Wtgk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/report/logs?id=63e790b2bb5ac0f7b3ab7bfa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"report",
+						"logs"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "63e790b2bb5ac0f7b3ab7bfa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUrl",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTdjY2IzMTc0MzYyZjExYjJjNTI3MyIsImVtYWlsIjoiYWRlbC5lc3NhbS5lbGZhckBnbWFpbC5jb20iLCJpYXQiOjE2NzYxMzU4OTksImV4cCI6MTY3NjIyMjI5OX0.ViM1cHKGyyPiBBhI5A7D6MTD0AKg82yBniB2LvykTOY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"name\":\"test\",\r\n \"url\":\"the-internet.herokuapp.com\",\r\n \"path\":\"/basic_auth\",\r\n \"protocol\":\"https\",\r\n \"port\":80,\r\n \"interval\":5000,\r\n  \"timeout\":10000,\r\n \"tags\":[\r\n         \"tag1\",\"tag2\"\r\n ],\r\n  \"httpHeaders\":[\r\n     {\r\n         \"key\":\"header1\",\r\n         \"value\":\"val1Header\"\r\n     }\r\n ],\r\n \"threshold\":\"2\",\r\n\"authentication\":{\r\n\"username\":\"admin\",\r\n\"password\":\"admin\"\r\n},\r\n\"assert\":{\r\n    \"statusCode\":200\r\n}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/url?url=63e7cdea419af5e0c8d50d36",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"url"
+					],
+					"query": [
+						{
+							"key": "url",
+							"value": "63e7cdea419af5e0c8d50d36"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUrl",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTAzNzRlMWQ3NzMxZGVhNDRiZTQwNiIsImVtYWlsIjoiYWRlbGVzc2FtMjU2QGdtYWlsLmNvbSIsImlhdCI6MTY3NjA0NTYyMSwiZXhwIjoxNjc2MTMyMDIxfQ.xBG5APyXdSBnS0Byk4AVMJV8oFm9QEwTrCcMLV6Wtgk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/url?url=63e78bdaeb5ccd405bb41573",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"url"
+					],
+					"query": [
+						{
+							"key": "url",
+							"value": "63e78bdaeb5ccd405bb41573"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
